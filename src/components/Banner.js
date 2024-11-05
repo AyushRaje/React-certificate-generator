@@ -1,6 +1,9 @@
 import { XMarkIcon } from '@heroicons/react/20/solid'
+import React, { useRef } from 'react';
 
-export default function Banner() {
+export default function Banner({ scrollToInstructions }) {
+    
+
   return (
     <div className="relative isolate flex items-center gap-x-6 overflow-hidden bg-gray-50 px-6 py-2.5 sm:px-3.5 sm:before:flex-1">
       <div
@@ -36,6 +39,7 @@ export default function Banner() {
           Please go through the instructions and usage before beginning.
         </p>
         <a
+          onClick={scrollToInstructions}
           href="#"
           className="flex-none rounded-full bg-gray-900 px-3.5 py-1 text-sm font-semibold text-white shadow-sm hover:bg-gray-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-gray-900"
         >

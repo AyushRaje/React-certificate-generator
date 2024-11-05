@@ -6,6 +6,7 @@ module.exports = {
     extend: {
       animation: {
         blink: 'blink 1s step-start infinite',
+        'bounce-slow': 'bounce 2s infinite',
       },
       keyframes: {
         blink: {
