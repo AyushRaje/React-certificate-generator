@@ -1,5 +1,7 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
+import React, {useRef,useState} from 'react'
+import OngoingAlert from './OngoingAlert'
 
 const navigation = [
   { name: 'Home', href: '#', current: true },
@@ -14,6 +16,18 @@ function classNames(...classes) {
 }
 
 export default function SimpleNavbar() {
+  const [modalVisible, setModalVisible] = useState(false);
+
+  // Function to handle showing the modal
+    const handleShowModal = () => {
+    setModalVisible(true);
+    };
+
+  // Function to handle hiding the modal
+    const handleCloseModal = () => {
+    setModalVisible(false);
+    };
+
   return (
     <Disclosure as="nav" className="bg-white">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
@@ -40,7 +54,8 @@ export default function SimpleNavbar() {
                 {navigation.map((item) => (
                   <a
                     key={item.name}
-                    href={item.href}
+                    href='#'
+                    onClick={item.name === 'Support'|| item.name ==='Request Template' ? handleShowModal : undefined}
                     aria-current={item.current ? 'page' : undefined}
                     className={classNames(
                       item.current ? 'bg-red-700 text-white' : 'text-black hover:bg-green-700 hover:text-white',
@@ -52,6 +67,7 @@ export default function SimpleNavbar() {
                   </a>
                 ))}
               </div>
+              <OngoingAlert trigger={modalVisible} closeModal={handleCloseModal}/>
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">

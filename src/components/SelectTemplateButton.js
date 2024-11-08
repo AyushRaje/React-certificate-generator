@@ -2,7 +2,7 @@ import GenerateModal from "./GenerateModal";
 import React, { useState } from 'react';
 function SelectTemplateButton(props){
 
-    const [modalVisible, setModalVisible] = useState(false);
+  const [modalVisible, setModalVisible] = useState(false);
 
   // Function to handle showing the modal
     const handleShowModal = () => {
